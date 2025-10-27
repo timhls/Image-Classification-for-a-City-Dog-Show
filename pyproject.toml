@@ -1,0 +1,19 @@
+[project]
+name = "image-classification-for-a-city-dog-show"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Timo Hülsmann",email = "thuelsmann82@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<3.15"
+dependencies = [
+    "torch (>=2.9.0,<3.0.0)",
+    "torchvision (>=0.24.0,<0.25.0)",
+    "pillow (>=12.0.0,<13.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
