@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:
+# PROGRAMMER: Timo Hülsmann
+# DATE CREATED: 01.11.2025
 # REVISED DATE: 
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
@@ -62,5 +62,23 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    None
-                
+    print(f"\n\n*** Results Summary for CNN Model Architecture {model.upper()} ***")
+    print(f"{'N Images':20}: {results_stats_dic['n_images']:3d}")
+    print(f"{'N Dog Images':20}: {results_stats_dic['n_dogs_img']:3d}")
+    print(f"{'N Not-Dog Images':20}: {results_stats_dic['n_notdogs_img']:3d}")
+
+    for key in results_stats_dic:
+        if key.startswith('pct_'):
+            print(f"{key:20}: {results_stats_dic[key]:.2f}")
+    
+    if print_incorrect_dogs:
+        print("\nIncorrectly Classified Dogs:")
+        for key in results_dic:
+            if results_dic[key][3] != results_dic[key][4]:
+                print(f"Real: {results_dic[key][0]:>26}   Classifier: {results_dic[key][1]:>30}")
+
+    if print_incorrect_breed:
+        print("\nIncorrectly Classified Breeds:")
+        for key in results_dic:
+            if results_dic[key][3] != results_dic[key][2]:
+                print(f"Real: {results_dic[key][0]:>26}   Classifier: {results_dic[key][1]:>30}")
