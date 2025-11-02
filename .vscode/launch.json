@@ -11,7 +11,7 @@
             "program": "check_images.py",
             "cwd": "${workspaceFolder}/data",
             "console": "integratedTerminal",
-            "args": "--dir pet_images/ --arch resnet  --dogfile dognames.txt > resnet_pet-images.txt"
+            "args": "--dir pet_images/ --arch resnet  --dogfile dognames.txt"
         }
     ]
 }
