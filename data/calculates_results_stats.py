@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/calculates_results_stats.py
 #                                                                             
-# PROGRAMMER:
-# DATE CREATED:                                  
+# PROGRAMMER: Timo Hülsmann
+# DATE CREATED: 01.11.2025
 # REVISED DATE: 
 # PURPOSE: Create a function calculates_results_stats that calculates the 
 #          statistics of the results of the programrun using the classifier's model 
@@ -70,4 +70,17 @@ def calculates_results_stats(results_dic):
     """        
     # Replace None with the results_stats_dic dictionary that you created with 
     # this function 
-    return None
+    results_stats = {}
+    results_stats['n_images'] = len(results_dic)
+    results_stats['n_dogs_img'] = sum(r[3] for r in results_dic.values())
+    results_stats['n_notdogs_img'] = results_stats['n_images'] - results_stats['n_dogs_img']
+    results_stats['n_match'] = sum(r[2] for r in results_dic.values())
+    results_stats['n_correct_dogs'] = sum(r[3] and r[4] for r in results_dic.values())
+    results_stats['n_correct_notdogs'] = sum(not r[3] and not r[4] for r in results_dic.values())
+    results_stats['n_correct_breed'] = sum(r[3] and r[2] for r in results_dic.values())
+    results_stats['pct_match'] = results_stats['n_match'] / results_stats['n_images'] * 100.0
+    results_stats['pct_correct_dogs'] = results_stats['n_correct_dogs'] / results_stats['n_dogs_img'] * 100.0
+    results_stats['pct_correct_breed'] = results_stats['n_correct_breed'] / results_stats['n_dogs_img'] * 100.0
+    results_stats['pct_correct_notdogs'] = results_stats['n_correct_notdogs'] / results_stats['n_notdogs_img'] * 100.0
+
+    return results_stats
