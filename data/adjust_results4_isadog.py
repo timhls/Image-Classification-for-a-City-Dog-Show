@@ -73,5 +73,5 @@ def adjust_results4_isadog(results_dic, dogfile):
             dognames_dic[line.rstrip().lower()] = 1
 
     for result in results_dic.values():
-        result.append(1 if result[0] in dognames_dic else 0)
-        result.append(1 if result[1] in dognames_dic else 0)
+        result.append(1 if result[0].rstrip().lower() in dognames_dic else 0)
+        result.append(1 if result[1].rstrip().lower() in dognames_dic else 0)
