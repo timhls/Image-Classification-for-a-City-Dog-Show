@@ -1,0 +1,78 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = resnet 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:                     Dog_01.jpg  label:                        dog
+ 2 key:               Tarantula_01.jpg  label:                  tarantula
+ 3 key:                     Dog_02.jpg  label:                        dog
+ 4 key:                   Pumps_01.jpg  label:                      pumps
+
+     MATCH:
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+
+              Tarantula_01.jpg: 
+Real:                  tarantula   Classifier:                      tarantula
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+
+ NOT A MATCH:
+
+                  Pumps_01.jpg: 
+Real:                      pumps   Classifier:                         sandal
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+
+     MATCH:
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian  
+PetLabelDog: 1  ClassLabelDog: 0
+
+              Tarantula_01.jpg: 
+Real:                  tarantula   Classifier:                      tarantula  
+PetLabelDog: 0  ClassLabelDog: 0
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian  
+PetLabelDog: 1  ClassLabelDog: 0
+
+ NOT A MATCH:
+
+                  Pumps_01.jpg: 
+Real:                      pumps   Classifier:                         sandal  
+PetLabelDog: 0  ClassLabelDog: 0
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog:   0.0 Pct Corr NOTdog: 100.0  Pct Corr Breed: 100.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog:   0.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+
+*** Results Summary for CNN Model Architecture RESNET ***
+N Images            :   4
+N Dog Images        :   2
+N Not-Dog Images    :   2
+pct_match           : 75.00
+pct_correct_dogs    : 0.00
+pct_correct_breed   : 100.00
+pct_correct_notdogs : 100.00
+
+Incorrectly Classified Dogs:
+Real:                        dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+Real:                        dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+
+Incorrectly Classified Breeds:
+Real:                  tarantula   Classifier:                      tarantula
+
+** Total Elapsed Runtime: 0:0:0
